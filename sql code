@@ -1,0 +1,26 @@
+#code for score
+CREATE TABLE chess_scores ( 
+id INT AUTO_INCREMENT PRIMARY KEY, 
+player_name VARCHAR(100), 
+player_score INT, 
+opponent_name VARCHAR(100), 
+opponent_score INT, 
+game_result VARCHAR(50), 
+game_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
+#code for connecting mysql
+package com.chessgame.Database; 
+import java.sql.Connection; 
+import java.sql.DriverManager; 
+import java.sql.SQLException; 
+public class DatabaseConnection { 
+private static final String URL = "jdbc:mysql://localhost:3306/chess_db"; // 
+Replace with your DB URL 
+private static final String USER = "root";  
+private static final String PASS = "password";  
+public static Connection getConnection() throws SQLException { 
+return DriverManager.getConnection(URL, USER, PASS); 
+} 
+}
+
